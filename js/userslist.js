@@ -1,10 +1,20 @@
+fetch("./userList.json")
+    .then(response => response.json())
+    .then(usersData => {
+        console.log(usersData);
+        // Do something with the retrieved JSON data
+    })
+    .catch(error => {
+        console.log("Error reading JSON file:", error);
+    });
+
 // Sample user data array
-let usersData = [
-    { id: 1, name: "John Doe", email: "john@example.com", phone: "123456789", username: "johndoe", password: "password123", userType: "student" },
-    { id: 2, name: "Jane Smith", email: "jane@example.com", phone: "987654321", username: "janesmith", password: "password456", userType: "teacher" },
-    { id: 3, name: "Admin User", email: "admin@example.com", phone: "555555555", username: "adminuser", password: "password789", userType: "admin" },
-    // ... add more users as needed
-];
+// let usersData = [
+//     { id: 1, name: "John Doe", email: "john@example.com", phone: "123456789", username: "johndoe", password: "password123", userType: "student" },
+//     { id: 2, name: "Jane Smith", email: "jane@example.com", phone: "987654321", username: "janesmith", password: "password456", userType: "teacher" },
+//     { id: 3, name: "Admin User", email: "admin@example.com", phone: "555555555", username: "adminuser", password: "password789", userType: "admin" },
+//     // ... add more users as needed
+// ];
 
 // Modal elements
 const modal = document.getElementById("modal");
@@ -87,7 +97,7 @@ function saveUser() {
             name,
             surname,
             password,
-            userType
+            userType,
         };
         usersData.push(newUser);
     }
@@ -99,10 +109,12 @@ function saveUser() {
 function deleteUser(currentUser) {
     if (currentUser) {
         // Confirm with the admin before deleting the user
-        const confirmDelete = confirm(`Are you sure you want to delete the user "${currentUser.name}"?`);
+        const confirmDelete = confirm(
+            `Are you sure you want to delete the user "${currentUser.name}"?`
+        );
         if (confirmDelete) {
             // Remove the user from the data array
-            usersData = usersData.filter(item => item.id !== currentUser.id);
+            usersData = usersData.filter((item) => item.id !== currentUser.id);
             displayUsers(usersData);
             closeModal();
         }
@@ -111,7 +123,9 @@ function deleteUser(currentUser) {
 
 // Function to filter users based on selected user type
 function filterUsers(userType) {
-    const filteredUsers = usersData.filter(user => userType === "all" || user.userType === userType);
+    const filteredUsers = usersData.filter(
+        (user) => userType === "all" || user.userType === userType
+    );
     displayUsers(filteredUsers);
 }
 
@@ -120,7 +134,7 @@ function displayUsers(users) {
     const usersBody = document.getElementById("users-body");
     usersBody.innerHTML = "";
 
-    users.forEach(user => {
+    users.forEach((user) => {
         const row = document.createElement("tr");
         row.innerHTML = `
         <td>${user.username}</td>
@@ -133,7 +147,7 @@ function displayUsers(users) {
           <button class="edit-btn">Edit</button>
           <button class="delete-btn">Delete user</button>
         </td>
-      `;
+         `;
         usersBody.appendChild(row);
 
         // Event listeners for edit and delete buttons
@@ -146,13 +160,12 @@ function displayUsers(users) {
 
         deleteBtn.addEventListener("click", () => {
             deleteUser(user);
-            console.log('User is Deleting ...')
+            console.log("User is Deleting ...");
         });
     });
 }
 
-// Event listener for save and delete buttons in the modal
-saveBtn.addEventListener("click", saveUser);
+// Event listener for save and delete button saveBtn.addEventListener("click", saveUser);
 deleteBtn.addEventListener("click", deleteUser);
 
 // Event listener for user type filter
