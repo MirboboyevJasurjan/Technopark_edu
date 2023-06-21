@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courses</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./pages/css/userslist.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <section class="flex">
+
+            <a href="home.html" class="logo">Technopark.</a>
+
+            <form action="search.html" method="post" class="search-form">
+                <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+                <button type="submit" class="fas fa-search"></button>
+            </form>
+
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+                <div id="search-btn" class="fas fa-search"></div>
+                <div id="user-btn" class="fas fa-user"></div>
+                <div id="toggle-btn" class="fas fa-sun"></div>
+            </div>
+
+            <div class="profile">
+                <img src="images/pic-1.jpg" class="image" alt="">
+                <h3 class="name">User name</h3>
+                <p class="role">Admin</p>
+                <a href="profile.html" class="btn">view profile</a>
+                <div class="flex-btn">
+                    <a href="login.html" class="option-btn">login</a>
+                    <a href="register.html" class="option-btn">register</a>
+                </div>
+            </div>
+
+        </section>
+
+    </header>
+
+    <div class="side-bar">
+
+        <div id="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="profile">
+            <img src="images/pic-1.jpg" class="image" alt="">
+            <h3 class="name">User Name</h3>
+            <p class="role">student</p>
+            <a href="profile.html" class="btn">view profile</a>
+        </div>
+
+        <nav class="navbar">
+            <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
+            <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
+            <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+            <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+            <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+        </nav>
+
+    </div>
+
+    <section class="courses">
+
+        <h1 class="heading">Users list</h1>
+
+        <div class="box-container">
+
+            <div>
+                <label for="user-type">User Type:</label>
+                <select id="user-type">
+                  <option value="all">All</option>
+                  <option value="student">Student</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <button id="add-user-btn">Add New User</button>
+
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <h2 id="modal-title"></h2>
+                    <label for="username-input">Username:</label>
+                    <input type="text" id="username-input">
+                    <label for="email-input">Email:</label>
+                    <input type="email" id="email-input">
+                    <label for="phone-input">Phone Number:</label>
+                    <input type="text" id="phone-input">
+                    <label for="name-input">Name:</label>
+                    <input type="text" id="name-input">
+                    <label for="surname-input">Surname:</label>
+                    <input type="text" id="surname-input">
+                    <label for="password-input">Password:</label>
+                    <input type="password" id="password-input">
+                    <label for="user-type-select">User Type:</label>
+                    <select id="user-type-select">
+                  <option value="student">Student</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="admin">Admin</option>
+                </select>
+                    <div>
+                        <button id="save-btn">Save</button>
+                        <button id="delete-btn" class="delete-it-btn"></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Add buttons for edit and delete in each row -->
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Telefon raqami</th>
+                        <th>F.I.Sh</th>
+                        <th>Telefon raqami</th>
+                        <th>Foydalanuvchi ro'li</th>
+                        <th>Events</th>
+                        <!-- New column for edit and delete buttons -->
+                    </tr>
+                </thead>
+                <tbody id="users-body">
+                    <!-- User data will be dynamically populated here -->
+                </tbody>
+            </table>
+
+
+
+
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+
+        &copy; copyright @ 2023 by <span>Technopark</span> | all rights reserved!
+
+    </footer>
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+    <script src="js/userslist.js"></script>
+
+
+</body>
+
+</html>
